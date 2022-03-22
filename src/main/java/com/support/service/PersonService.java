@@ -8,6 +8,8 @@ public interface PersonService {
 
     PersonDTO save(PersonDTO personDTO);
 
+    void populateDatabase();
+
     List<PersonDTO> list();
 
 }

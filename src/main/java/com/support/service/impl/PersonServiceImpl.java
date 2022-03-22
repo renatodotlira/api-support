@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import javax.xml.datatype.DatatypeConfigurationException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,16 +20,22 @@ import static com.support.translate.PersonTranslator.toModel;
 public class PersonServiceImpl implements PersonService {
 
     @Autowired
-    PersonRepository repository;
+    private PersonRepository repository;
 
     @Override
-    public PersonDTO save(PersonDTO personDTO) {
+    public PersonDTO save(final PersonDTO personDTO) {
         try {
             repository.save(toModel(personDTO));
         } catch (DatatypeConfigurationException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void populateDatabase() {
+        List<String> persons = Arrays.asList("João", "Maria", "Zeca", "Mario", "Gustavo", "Camila", "Pedro", "Juliana", "Gisele");
+        persons.forEach(name -> this.save(PersonDTO.builder().name(name).build()));
     }
 
     @Override

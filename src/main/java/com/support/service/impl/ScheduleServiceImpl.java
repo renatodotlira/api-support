@@ -18,7 +18,7 @@ import static com.support.utils.DateUtils.isWeekend;
 public class ScheduleServiceImpl implements ScheduleService {
 
     @Autowired
-    PersonService personService;
+    private final PersonService personService;
 
     public ScheduleServiceImpl(final PersonServiceImpl personService) {
         this.personService = personService;
