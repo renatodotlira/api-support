@@ -35,5 +35,3 @@ Execute o seguinte comando para criar a imagem docker
 ```
 docker build -t api-support-image .
 ```
-
-[Antes de seguir, certifique-se de ter seguido os passos no projeto do ]Execute o seguinte comando para criar a imagem docker
